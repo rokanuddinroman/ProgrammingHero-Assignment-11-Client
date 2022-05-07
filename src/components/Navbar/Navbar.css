@@ -33,7 +33,14 @@
 }
 
 .menulink:hover {
-    background-color: rgb(236, 236, 236);
+    background-color: #1D90F4;
+    color: white !important;
+    /* background-color: rgb(236, 236, 236); */
+}
+
+.menulink a:hover {
+    color: white;
+    /* background-color: rgb(236, 236, 236); */
 }
 
 .navbar .navlinks .navmenu a {

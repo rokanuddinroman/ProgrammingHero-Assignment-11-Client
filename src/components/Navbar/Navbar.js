@@ -29,6 +29,7 @@ const Navbar = () => {
                         {
                             user ?
                                 <>
+                                    <span style={{ marginLeft: "5px" }}>{user.email}</span>
                                     <button className='prime__button' onClick={handleSignOut}>Signout</button>
                                 </>
                                 :

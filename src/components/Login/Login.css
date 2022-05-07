@@ -63,3 +63,19 @@ form input:focus {
     color: white;
     font-weight: 600;
 }
+
+.outline__button {
+    background-color: transparent;
+    border: 2px solid white;
+    padding: 8px 50px;
+    font-weight: 600;
+    margin-top: 0.8rem;
+    color: white;
+    border-radius: 8px;
+    margin-inline: auto;
+    display: block;
+}
+
+hr {
+    margin-block: 5px;
+}

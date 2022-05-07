@@ -1,0 +1,21 @@
+.hero__section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.hero__title {
+    margin-top: 8rem;
+}
+
+.hero__title h1 {
+    color: #0081D2;
+    font-size: 40px;
+}
+
+.hero__image img {
+    float: right;
+}
+
+.home {
+    background-color: rgb(233, 233, 233);
+}
