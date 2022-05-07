@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../firebase.init';
 import './Login.css'
+import 'react-toastify/dist/ReactToastify.css';
 const Login = () => {
 
     const [
@@ -37,11 +39,29 @@ const Login = () => {
         signInWithEmailAndPassword(email, password)
     }
 
+    const [signInWithGoogle, user1] = useSignInWithGoogle(auth);
 
+    if (user1) {
+        navigate(from, { replace: true })
+    }
 
+    const [sendPasswordResetEmail, sending, error2] = useSendPasswordResetEmail(
+        auth
+    );
+
+    const resetPassword = async () => {
+        if (email) {
+            await sendPasswordResetEmail(email);
+            toast.error('Please Check your Mail');
+        }
+        else {
+            toast.error('Please Enter Your Email')
+        }
+    }
 
     return (
         <div className="main">
+            <ToastContainer />
             <div className='container login__container'>
                 <div></div>
                 <div className="form">
@@ -52,14 +72,14 @@ const Login = () => {
                             <br />
                             <input onBlur={handlePasswordBlur} type="password" name="password" id="" placeholder='Password' required />
                             <br />
-                            <Link className='formlink right' to="/">Forget Password?</Link>
+                            <button className='formlink right' onClick={resetPassword}>Forget Password?</button>
                             <input className='btn' type="submit" value="Log In" />
                         </form>
 
                         <p style={{ marginTop: "1.5rem" }}>Not registered yet? <Link className='formlink' to="/registration">Create an Account.</Link></p>
-                        <p style={{ color: "red" }}>{error}</p>
+                        <p className='error' style={{ color: "red" }}>{error}</p>
                         <hr />
-                        <button className="outline__button">Sign in with Google</button>
+                        <button onClick={() => signInWithGoogle()} className="outline__button">Sign in with Google</button>
                     </div>
                 </div>
             </div>

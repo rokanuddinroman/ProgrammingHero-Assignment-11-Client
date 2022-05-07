@@ -1,0 +1,26 @@
+img {
+    width: 100%;
+}
+
+.fancy__link {
+    background-color: red;
+    background-size: 100% 3px;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.fancy__link:hover {
+    background-size: 100% 3px;
+}
+
+.update__button {
+    width: 100%;
+    padding: 10px 15px;
+    background-color: #1d90f4;
+    border: 0px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+}

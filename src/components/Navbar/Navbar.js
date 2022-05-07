@@ -21,9 +21,9 @@ const Navbar = () => {
                 <div className="navlinks">
                     <div className="navmenu">
                         <NavLink className="menulink" to="/">Home</NavLink>
-                        <NavLink className="menulink" to="/">Inventories</NavLink>
-                        <NavLink className="menulink" to="/">Blogs</NavLink>
-                        <NavLink className="menulink" to="/">About</NavLink>
+                        <NavLink className="menulink" to="/manageinventories">Inventories</NavLink>
+                        <NavLink className="menulink" to="/blogs">Blogs</NavLink>
+                        <NavLink className="menulink" to="/about">About</NavLink>
                     </div>
                     <div className="navbuttons">
                         {

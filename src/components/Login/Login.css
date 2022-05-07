@@ -49,11 +49,13 @@ form input:focus {
     color: #1D90F4;
     font-weight: 600;
     text-decoration: none;
+    background-color: transparent;
+    border: none;
 }
 
 .right {
     margin-block: 0.5rem;
-    margin-left: 50%;
+    margin-left: 58%;
 }
 
 .btn {
@@ -78,4 +80,10 @@ form input:focus {
 
 hr {
     margin-block: 5px;
+}
+
+.error {
+    border-left: 3px solid rgb(255, 96, 96);
+    background-color: rgb(255, 196, 196);
+
 }

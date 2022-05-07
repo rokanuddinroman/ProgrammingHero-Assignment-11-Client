@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import Product from '../Product/Product';
 import './Home.css'
 const Home = () => {
+    const [products, setProducts] = useState([])
+    useEffect(() => {
+        fetch('items.json')
+            .then(res => res.json())
+            .then(data => setProducts(data))
+    }, [])
     return (
         <div className='home'>
             <div className="hero__section container">
@@ -12,6 +19,14 @@ const Home = () => {
                 </div>
                 <div className="hero__image">
                     <img src="https://drakemall-files-new.s3.eu-central-1.amazonaws.com/Marvel%201-ck2casm5x018l01prannqymuo.png" alt="" />
+                </div>
+            </div>
+            <div className="products__section container">
+                <h2>Warehouse Products</h2>
+                <div className="product__items">
+                    {
+                        products.slice(1.6).map(product => <Product key={product._id} product={product}></Product>)
+                    }
                 </div>
             </div>
 

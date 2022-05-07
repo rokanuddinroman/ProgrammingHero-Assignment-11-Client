@@ -50,8 +50,9 @@
     padding: 10px 15px;
 }
 
-.navbar .navlinks .navmenu a:active {
-    background-color: rgb(236, 236, 236);
+.navbar .navlinks .navmenu a.active {
+    background-color: #1D90F4;
+    color: white !important;
 }
 
 .navbuttons .prime__button {
