@@ -1,0 +1,56 @@
+.navbar__container {
+    position: relative;
+    width: 100%;
+    border-bottom: 1.5px solid black;
+    background-color: rgb(255, 255, 255);
+}
+
+.logo {
+    padding-block: 0.49rem;
+}
+
+.navbar {
+    max-width: 1200px;
+    margin-inline: auto;
+    /* padding-block: 0.49rem; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar .navlinks .menulink {
+    /* border-left: 1.5px solid black; */
+    /* padding-block: 0.49rem; */
+}
+
+.navbar .navlinks .menulink:last-child {
+    border-right: 1.5px solid black;
+
+}
+
+.navbar .navlinks {
+    display: flex;
+}
+
+.menulink:hover {
+    background-color: rgb(236, 236, 236);
+}
+
+.navbar .navlinks .navmenu a {
+    text-decoration: none;
+    border-left: 1.5px solid black;
+    color: black;
+    padding: 10px 15px;
+}
+
+.navbar .navlinks .navmenu a:active {
+    background-color: rgb(236, 236, 236);
+}
+
+.navbuttons .prime__button {
+    padding: 3px 15px;
+    margin-left: 1rem;
+    background-color: rgb(236, 236, 236);
+    border-radius: 8px;
+    border: none;
+}
