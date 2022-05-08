@@ -1,8 +1,10 @@
 import React from 'react';
-
+import './AddProduct.css'
 const AddProduct = () => {
     return (
-        <div>
+        <div className='container'>
+
+            <form action=""></form>
 
         </div>
     );

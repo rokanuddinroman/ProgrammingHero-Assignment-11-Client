@@ -47,8 +47,34 @@
     font-weight: 600;
 }
 
+.product__row:hover {
+    background-color: #F9FBFC;
+}
+
 .product__rows {
     border-radius: 5px;
     margin-top: 3rem;
     /* background-color: rgba(128, 128, 128, 0.199); */
+}
+
+.product__row span {
+    display: flex;
+}
+
+.product__row button {
+    background-color: rgb(221, 221, 221);
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    margin-inline: 0.3rem;
+}
+
+.product__row button:hover {
+    background-color: rgb(209, 209, 209);
+}
+
+.icon__button div {
+    display: inline;
 }
