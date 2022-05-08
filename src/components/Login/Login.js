@@ -73,11 +73,11 @@ const Login = () => {
                             <input onBlur={handlePasswordBlur} type="password" name="password" id="" placeholder='Password' required />
                             <br />
                             <button className='formlink right' onClick={resetPassword}>Forget Password?</button>
+                            <p className='error' style={{ color: "red" }}>{error}</p>
                             <input className='btn' type="submit" value="Log In" />
                         </form>
 
                         <p style={{ marginTop: "1.5rem" }}>Not registered yet? <Link className='formlink' to="/registration">Create an Account.</Link></p>
-                        <p className='error' style={{ color: "red" }}>{error}</p>
                         <hr />
                         <button onClick={() => signInWithGoogle()} className="outline__button">Sign in with Google</button>
                     </div>

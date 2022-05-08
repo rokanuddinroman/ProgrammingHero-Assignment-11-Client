@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link, useNavigate } from 'react-router-dom';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 const Registration = () => {
 
     const [createUserWithEmailAndPassword, user, loading, error1] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
-    // const navigate = useNavigate()
+    const location = useLocation();
+    const navigate = useNavigate()
+    const from = location.state?.from?.pathname || '/'
 
     // if (user) {
     //     navigate('/')
     // }
+    if (user) {
+        navigate(from, { replace: true })
+    }
 
 
     const [email, setEmail] = useState('')
@@ -48,7 +53,11 @@ const Registration = () => {
 
     }
 
+    const [signInWithGoogle, user1] = useSignInWithGoogle(auth);
 
+    if (user1) {
+        navigate(from, { replace: true })
+    }
 
     return (
         <div className="main">
@@ -64,13 +73,13 @@ const Registration = () => {
                             <br />
                             <input onBlur={handleConfirmPasswordBlur} type="password" name="" id="confirmpassword" placeholder='Confirm Password' required />
                             <br />
-                            <Link className='formlink right' to="/">Reset Password?</Link>
                             <input className='btn' type="submit" value="Sign Up" />
                         </form>
 
                         <p style={{ marginTop: "1.5rem" }}>Already registered? <Link className='formlink' to="/login">Sign In.</Link></p>
-                        <p style={{ color: 'red' }}>{error}</p>
-
+                        <p className='error' style={{ color: "red" }}>{error}</p>
+                        <hr />
+                        <button onClick={() => signInWithGoogle()} className="outline__button">Sign in with Google</button>
                     </div>
                 </div>
             </div>
