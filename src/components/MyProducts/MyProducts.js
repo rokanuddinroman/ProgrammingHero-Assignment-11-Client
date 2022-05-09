@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import ProductRow from '../ProductRow/ProductRow';
 import './MyProducts.css'
 
 const MyProducts = () => {
@@ -22,10 +23,15 @@ const MyProducts = () => {
     }, [user])
 
     return (
-        <div className='container'>
-            <p>Your Products {myProducts.length}</p>
+        <div className='container product__rows'>
+            <div className='product__row__heading'>
+                <p>Product Name ({myProducts.length})</p>
+                <p>Supplier</p>
+                <p>Price</p>
+                <p>Quantity</p>
+            </div>
             {
-                myProducts.map(myProduct => <p>{myProduct.productname}</p>)
+                myProducts.map(myProduct => <ProductRow product={myProduct}></ProductRow>)
             }
         </div>
     );
