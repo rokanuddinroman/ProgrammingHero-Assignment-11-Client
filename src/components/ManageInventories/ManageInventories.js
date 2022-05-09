@@ -27,7 +27,7 @@ const ManageInventories = () => {
         <div className='container inventory__container'>
             <div className='product__rows'>
                 <div className='product__row__heading'>
-                    <p>Product Name</p>
+                    <p>Product Name ({products.length})</p>
                     <p>Supplier</p>
                     <p>Price</p>
                     <p>Quantity</p>
