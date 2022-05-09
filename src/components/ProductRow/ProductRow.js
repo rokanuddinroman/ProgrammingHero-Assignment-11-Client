@@ -2,10 +2,17 @@ import React from 'react';
 import useProducts from '../../CustomHooks/useProducts/useProducts';
 import { FiEdit } from 'react-icons/fi';
 import { RiDeleteBin5Line } from 'react-icons/ri';
+import { useNavigate } from 'react-router-dom';
 
 const ProductRow = (props) => {
     const { product } = props
     const { products, setProducts } = useProducts([])
+
+    const navigate = useNavigate();
+
+    const productDetails = id => {
+        navigate(`/inventory/${id}`);
+    }
 
     const handleDelete = id => {
         const proceed = window.confirm('Sure?')
@@ -31,7 +38,7 @@ const ProductRow = (props) => {
             <p>{product.price}$</p>
             <p className='quantity__column'>{product.quantity}
                 <span>
-                    <button className='icon__button'><FiEdit /></button>
+                    <button onClick={() => productDetails(product._id)} className='icon__button'><FiEdit /></button>
                     <button onClick={() => handleDelete(product._id)} className='icon__button'><RiDeleteBin5Line /></button>
                 </span>
             </p>

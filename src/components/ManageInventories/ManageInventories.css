@@ -78,3 +78,11 @@
 .icon__button div {
     display: inline;
 }
+
+.thin__button {
+    text-decoration: none;
+    color: white;
+    background-color: #2e2e2e;
+    padding: 2px 12px;
+    border-radius: 5px;
+}

@@ -3,9 +3,16 @@ import useProducts from '../../CustomHooks/useProducts/useProducts';
 import './ManageInventories.css'
 import { FiEdit } from 'react-icons/fi';
 import { RiDeleteBin5Line } from 'react-icons/ri';
-import { useParams } from 'react-router-dom';
+import { MdAdd } from 'react-icons/md';
+import { useNavigate, Link } from 'react-router-dom';
 const ManageInventories = () => {
     const { products, setProducts } = useProducts([])
+
+    const navigate = useNavigate();
+
+    const productDetails = id => {
+        navigate(`/inventory/${id}`);
+    }
 
     const handleDelete = id => {
         const proceed = window.confirm('Sure?')
@@ -30,7 +37,9 @@ const ManageInventories = () => {
                     <p>Product Name ({products.length})</p>
                     <p>Supplier</p>
                     <p>Price</p>
-                    <p>Quantity</p>
+                    <p style={{ display: "flex", justifyContent: "space-between" }}>Quantity
+                        <Link style={{ display: "flex", alignItems: "center" }} className='thin__button' to="/addproduct"><MdAdd />Add new item</Link>
+                    </p>
                 </div>
                 {
                     products.map(product => <div className='product__row'>
@@ -41,7 +50,7 @@ const ManageInventories = () => {
                         <p>{product.price}$</p>
                         <p className='quantity__column'>{product.quantity}
                             <span>
-                                <button className='icon__button'><FiEdit /></button>
+                                <button onClick={() => productDetails(product._id)} className='icon__button'><FiEdit /></button>
                                 <button onClick={() => handleDelete(product._id)} className='icon__button'><RiDeleteBin5Line /></button>
                             </span>
                         </p>

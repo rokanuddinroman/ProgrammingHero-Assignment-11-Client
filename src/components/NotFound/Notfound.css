@@ -1,0 +1,6 @@
+.not__found img {
+    width: 50%;
+    float: center;
+    margin-inline: auto;
+    display: block;
+}
