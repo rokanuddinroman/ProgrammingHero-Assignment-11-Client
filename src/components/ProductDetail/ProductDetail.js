@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import './ProductDetail.css'
 const ProductDetail = () => {
     const { productId } = useParams();
@@ -15,6 +16,10 @@ const ProductDetail = () => {
     const handleUpdateStock = event => {
         event.preventDefault();
         const quantity = event.target.quantity.value;
+        if (parseInt(quantity) < 0) {
+            toast("Your input is not acceptable")
+            return;
+        }
         console.log("Quantity", quantity)
         const newQuantityNumber = parseInt(quantity) + parseInt(product.quantity);
         const newQuantityString = String(newQuantityNumber);
@@ -40,6 +45,10 @@ const ProductDetail = () => {
     }
 
     const handleDelivered = id => {
+        if (product.quantity <= 0) {
+            toast("This Product is Sold Out")
+            return;
+        }
         const currentQuantity = parseInt(product.quantity) - 1;
         const newQuantityString = String(currentQuantity)
         const updatedStock = { newQuantityString };
@@ -69,8 +78,12 @@ const ProductDetail = () => {
                 <div className='product__info'>
                     <h1>{product.productname}</h1>
                     <span className="blue__badge">{product.suppliername}</span>
+                    <small style={{ display: "block", marginBlock: "0.5rem" }}>ProductId is {product._id}</small>
                     <p>{product.description}</p>
-                    <p className="quantity">{product.quantity} items available.</p>
+                    <p className="quantity">{
+                        product.quantity <= 0 ?
+                            "No" : product.quantity
+                    } items available.</p>
                     <h1 className="price">{product.price}$</h1>
                     <button onClick={() => handleDelivered(productId)} className='second__btn'>Delivered</button>
                     <br />

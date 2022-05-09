@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import './App.css';
 import AddProduct from './components/AddProduct/AddProduct';
+import Blogs from './components/Blogs/Blogs';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import ManageInventories from './components/ManageInventories/ManageInventories';
@@ -19,6 +20,7 @@ function App() {
       <Navbar></Navbar>
       <Routes>
         <Route path='/' element={<Home />}></Route>
+        <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/inventory/:productId' element={
           <RequireAuth>
             <ProductDetail></ProductDetail>

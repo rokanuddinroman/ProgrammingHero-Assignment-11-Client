@@ -1,0 +1,6 @@
+.blogs__container div {
+    margin-block: 1rem;
+    padding: 1rem;
+    background-color: #f0faff;
+    border-radius: 5px;
+}
