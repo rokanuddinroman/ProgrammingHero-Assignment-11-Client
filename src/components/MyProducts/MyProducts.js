@@ -24,6 +24,9 @@ const MyProducts = () => {
     return (
         <div className='container'>
             <p>Your Products {myProducts.length}</p>
+            {
+                myProducts.map(myProduct => <p>{myProduct.productname}</p>)
+            }
         </div>
     );
 };

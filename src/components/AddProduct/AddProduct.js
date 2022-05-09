@@ -18,7 +18,7 @@ const AddProduct = () => {
             price: event.target.price.value,
             quantity: event.target.quantity.value
         }
-        axios.post('http://localhost:5000/myproduct', myProduct)
+        axios.post('http://localhost:5000/product', myProduct)
             .then(response => {
                 const { data } = response;
                 if (data.insertedId) {
