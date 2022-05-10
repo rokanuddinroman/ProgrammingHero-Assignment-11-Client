@@ -7,6 +7,7 @@ import { MdAdd } from 'react-icons/md';
 import { useNavigate, Link } from 'react-router-dom';
 const ManageInventories = () => {
     const { products, setProducts } = useProducts([])
+    const { spinner } = useProducts()
 
     const navigate = useNavigate();
 
@@ -41,6 +42,11 @@ const ManageInventories = () => {
                         <Link style={{ display: "flex", alignItems: "center" }} className='thin__button' to="/addproduct"><MdAdd />Add new item</Link>
                     </p>
                 </div>
+                {spinner && (
+                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '400px' }}>
+                        <img style={{ width: '200px' }} src="https://flevix.com/wp-content/uploads/2019/07/Disk-Preloader-1.gif" alt="" />
+                    </div>
+                )}
                 {
                     products.map(product => <div className='product__row'>
                         <p className='product__name'>

@@ -6,11 +6,16 @@ import Product from '../Product/Product';
 import './Home.css'
 const Home = () => {
     const [products, setProducts] = useState([])
+    const [spinner, setSpinner] = useState(false);
     const { blogs } = useBlogs()
     useEffect(() => {
+        setSpinner(true);
         fetch('http://localhost:5000/product')
             .then(res => res.json())
-            .then(data => setProducts(data))
+            .then(data => {
+                setProducts(data)
+                setSpinner(false);
+            })
     }, [])
 
     if (window.location.reload == true) {
@@ -42,6 +47,11 @@ const Home = () => {
                         <Link style={{ textDecoration: "none", padding: "5px 12px", borderRadius: "8px", backgroundColor: "black", color: "white", fontWeight: "600" }} to="/manageinventory">Manage All Inventories</Link >
                     </div>
                 </div>
+                {spinner && (
+                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '400px' }}>
+                        <img style={{ width: '200px' }} src="https://flevix.com/wp-content/uploads/2019/07/Disk-Preloader-1.gif" alt="" />
+                    </div>
+                )}
                 <div className="product__items">
                     {
                         products.slice(0, 6).map(product => <Product key={product._id} product={product}></Product>)

@@ -77,9 +77,9 @@ const ProductDetail = () => {
                 <img src={product.image} alt="" />
                 <div className='product__info'>
                     <h1>{product.productname}</h1>
-                    <span className="blue__badge">{product.suppliername}</span>
                     <small style={{ display: "block", marginBlock: "0.5rem" }}>ProductId is {product._id}</small>
                     <p>{product.description}</p>
+                    <span className="blue__badge">{product.suppliername}</span>
                     <p className="quantity">{
                         product.quantity <= 0 ?
                             "No" : product.quantity

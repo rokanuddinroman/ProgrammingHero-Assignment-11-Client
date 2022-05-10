@@ -18,7 +18,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="footer__2">
-                    <h2 style={{ marginTop: "1rem" }}>Subscribe for latest updates</h2>
+                    <h2 style={{ marginTop: "1rem" }}>We will let you know, everytime when your product gets sold.</h2>
                     <div className="subscribe__container">
                         <input type="text" placeholder='Email@gmail.com' /><button>Subscribe</button>
                     </div>
