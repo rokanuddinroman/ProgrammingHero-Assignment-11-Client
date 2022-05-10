@@ -20,8 +20,43 @@
     background-color: rgb(233, 233, 233);
 }
 
+.product__items div {
+    background-color: #F9FBFC;
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+
 .product__items {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
+}
+
+.blogs article {
+    background-color: #e9e9e9;
+    border-radius: 8px;
+}
+
+.blogs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.blogs img {
+    border-radius: 8px 8px 0px 0px;
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+
+.blogs h2 {
+    margin: 0;
+    padding: 5px;
+    padding-bottom: 15px;
+}
+
+.blogs h2 a {
+    text-decoration: none;
+    color: black;
 }

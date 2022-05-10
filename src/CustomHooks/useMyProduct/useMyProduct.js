@@ -1,12 +1,10 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
-import ProductRow from '../ProductRow/ProductRow';
-import './MyProducts.css'
 
-const MyProducts = () => {
-
+const useMyProduct = () => {
     const [user] = useAuthState(auth)
     const [myProducts, setMyProducts] = useState([])
     useEffect(() => {
@@ -25,20 +23,7 @@ const MyProducts = () => {
         getProducts()
 
     }, [user])
-
-    return (
-        <div className='container product__rows'>
-            <div className='product__row__heading'>
-                <p>Product Name ({myProducts.length})</p>
-                <p>Supplier</p>
-                <p>Price</p>
-                <p>Quantity</p>
-            </div>
-            {
-                myProducts.map(myProduct => <ProductRow product={myProduct}></ProductRow>)
-            }
-        </div>
-    );
+    return { myProducts, setMyProducts };
 };
 
-export default MyProducts;
+export default useMyProduct;

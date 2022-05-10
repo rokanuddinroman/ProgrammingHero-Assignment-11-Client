@@ -1,0 +1,46 @@
+.addproduct__input {
+    border: 1.9px solid rgb(110, 110, 110);
+    padding: 4px 8px;
+    height: 36px;
+    width: 50%;
+    background-color: #F9FBFC;
+    border-radius: 4px;
+    font-size: 16px;
+    color: black;
+    margin-block: 0.5rem;
+
+}
+
+.addproduct__input:focus {
+    outline: 4px solid #edf6fa;
+    border: 2px solid #2291c5;
+    /* outline: 3px solid #edfaf6;
+    border: 2px solid #22c58b; */
+}
+
+.background__fluid {
+    background-color: #eff3f5;
+
+}
+
+.background {
+    background-color: #F9FBFC;
+    background-image: url(https://freepngimg.com/download/vector/121568-pattern-vector-download-hd.png);
+    background-repeat: no-repeat;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    background-position-y: -50px;
+}
+
+.addproduct__form form {
+    background-color: white;
+    margin-top: 4rem;
+}
+
+.addproduct__form {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-inline: auto;
+    text-align: center;
+}

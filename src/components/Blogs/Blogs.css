@@ -2,5 +2,15 @@
     margin-block: 1rem;
     padding: 1rem;
     background-color: #f0faff;
-    border-radius: 5px;
+    border-radius: 7px;
+}
+
+.blogs__container div h2 {
+    margin-bottom: 0.7rem;
+}
+
+.blogs__container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
 }

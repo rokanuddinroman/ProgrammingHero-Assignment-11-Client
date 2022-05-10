@@ -3,6 +3,7 @@ import { ToastContainer } from 'react-toastify';
 import './App.css';
 import AddProduct from './components/AddProduct/AddProduct';
 import Blogs from './components/Blogs/Blogs';
+import Footer from './components/Footer/Footer';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import ManageInventories from './components/ManageInventories/ManageInventories';
@@ -45,6 +46,7 @@ function App() {
         <Route path='/registration' element={<Registration />}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
+      <Footer />
     </div>
   );
 }

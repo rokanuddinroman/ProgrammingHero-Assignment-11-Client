@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
 const Registration = () => {
@@ -49,7 +50,7 @@ const Registration = () => {
             return;
         }
         createUserWithEmailAndPassword(email, password)
-        alert('Verification Mail Sent')
+        toast('Verification Mail Sent')
 
     }
 

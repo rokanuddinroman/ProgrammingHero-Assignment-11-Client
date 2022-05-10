@@ -30,23 +30,31 @@ const AddProduct = () => {
     }
 
     return (
-        <div className='container'>
-            <form onSubmit={handleAddItem}>
-                <input type="text" name="productname" id="" placeholder='Product Name' required />
-                <br />
-                <input type="text" name="description" id="" placeholder='Description' required />
-                <br />
-                <input type="text" name="image" id="" placeholder='Image URL' required />
-                <br />
-                <input type="text" name="suppliername" id="" placeholder='Supplier Name' required />
-                <br />
-                <input type="number" name="price" id="" placeholder='Price' required />
-                <br />
-                <input type="number" name="quantity" id="" placeholder='Quantity' required />
-                <br />
-                <input type="submit" value="Add Product" />
-            </form>
+        <div className="background__fluid">
+            <div className='container addproduct__form'>
+                <div className='background'></div>
+                <div style={{
+                    backgroundColor: "white",
+                }}>
+                    <form onSubmit={handleAddItem}>
+                        <h2 style={{ marginBottom: "0.5rem" }}>Add Item</h2>
+                        <input className='addproduct__input' type="text" name="productname" id="" placeholder='Product Name' required />
+                        <br />
+                        <input className='addproduct__input' type="text" name="description" id="" placeholder='Description' required />
+                        <br />
+                        <input className='addproduct__input' type="text" name="image" id="" placeholder='Image URL' required />
+                        <br />
+                        <input className='addproduct__input' type="text" name="suppliername" id="" placeholder='Supplier Name' required />
+                        <br />
+                        <input className='addproduct__input' type="number" name="price" id="" placeholder='Price' required />
+                        <br />
+                        <input className='addproduct__input' type="number" name="quantity" id="" placeholder='Quantity' required />
+                        <br />
+                        <input style={{ width: "50%", marginLeft: "-3px", padding: "10px", borderRadius: "8px", marginTop: "0.5rem", cursor: "pointer" }} className='dark__button' type="submit" value="Add Product" />
+                    </form>
+                </div>
 
+            </div>
         </div>
     );
 };

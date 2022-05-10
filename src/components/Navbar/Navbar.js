@@ -17,7 +17,7 @@ const Navbar = () => {
         <div className="navbar__container">
             <div className="navbar">
                 <div className="logo">
-                    Toy Store
+                    <p>Marvel Bangladesh</p>
                 </div>
                 <div className="navlinks">
                     <div className="navmenu">
