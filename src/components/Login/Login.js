@@ -27,7 +27,11 @@ const Login = () => {
     if (user) {
         // navigate(from, { replace: true })
     }
-
+    if (loading) {
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '400px' }}>
+            <img style={{ width: '200px' }} src="https://flevix.com/wp-content/uploads/2019/07/Disk-Preloader-1.gif" alt="" />
+        </div>
+    }
 
     const handleEmailBlur = event => {
         setEmail(event.target.value);

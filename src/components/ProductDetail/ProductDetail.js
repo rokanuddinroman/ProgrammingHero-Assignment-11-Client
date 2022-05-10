@@ -5,12 +5,17 @@ import './ProductDetail.css'
 const ProductDetail = () => {
     const { productId } = useParams();
     const [product, setProduct] = useState({})
+    const [spinner, setSpinner] = useState(false);
 
     useEffect(() => {
         const url = `http://localhost:5000/product/${productId}`
+        setSpinner(false);
         fetch(url)
             .then(res => res.json())
-            .then(data => setProduct(data))
+            .then(data => {
+                setSpinner(false);
+                setProduct(data)
+            })
     }, [product])
 
     const handleUpdateStock = event => {
@@ -73,29 +78,39 @@ const ProductDetail = () => {
 
     return (
         <div className='container '>
-            <div className="product__detail">
-                <img src={product.image} alt="" />
-                <div className='product__info'>
-                    <h1>{product.productname}</h1>
-                    <small style={{ display: "block", marginBlock: "0.5rem" }}>ProductId is {product._id}</small>
-                    <p>{product.description}</p>
-                    <span className="blue__badge">{product.suppliername}</span>
-                    <p className="quantity">{
-                        product.quantity <= 0 ?
-                            "No" : product.quantity
-                    } items available.</p>
-                    <h1 className="price">{product.price}$</h1>
-                    <button onClick={() => handleDelivered(productId)} className='second__btn'>Delivered</button>
-                    <br />
-                    <div><h1 className="heading">Update Stocks</h1></div>
-                    <div style={{ marginBlock: "0.8rem" }}>
-                        <form onSubmit={handleUpdateStock}>
-                            <input className='' type="number" name="quantity" placeholder='Enter Stocks' id="" />
-                            <button className='dark__button' type="submit">Update</button>
-                        </form>
+            {
+                !spinner &&
+                <div className="product__detail">
+                    <img src={product.image} alt="" />
+                    <div className='product__info'>
+                        <h1>{product.productname}</h1>
+                        <small style={{ display: "block", marginBlock: "0.5rem" }}>ProductId is {product._id}</small>
+                        <p>{product.description}</p>
+                        <span className="blue__badge">{product.suppliername}</span>
+                        <p className="quantity">{
+                            product.quantity <= 0 ?
+                                "No" : product.quantity
+                        } items available.</p>
+                        <h1 className="price">{product.price}$</h1>
+                        <button onClick={() => handleDelivered(productId)} className='second__btn'>Delivered</button>
+                        <br />
+                        <div><h1 className="heading">Update Stocks</h1></div>
+                        <div style={{ marginBlock: "0.8rem" }}>
+                            <form onSubmit={handleUpdateStock}>
+                                <input className='' type="number" name="quantity" placeholder='Enter Stocks' id="" />
+                                <button className='dark__button' type="submit">Update</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
+
+            }
+            {
+                spinner && <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '400px' }}>
+                    <img style={{ width: '200px' }} src="https://flevix.com/wp-content/uploads/2019/07/Disk-Preloader-1.gif" alt="" />
+                </div>
+            }
+
             <div style={{ marginBlock: "1rem", textAlign: "center" }}>
                 <Link style={{ textDecoration: "none", padding: "5px 12px", borderRadius: "8px", backgroundColor: "#e70c0f", color: "white", fontWeight: "600" }} to="/manageinventory">Manage All Inventories</Link >
             </div>

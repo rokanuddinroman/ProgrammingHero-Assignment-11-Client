@@ -18,11 +18,11 @@ const Home = () => {
             })
     }, [])
 
-    if (window.location.reload == true) {
-        return <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '400px' }}>
-            <img style={{ width: '200px' }} src="https://flevix.com/wp-content/uploads/2019/07/Disk-Preloader-1.gif" alt="" />
-        </div>
-    }
+    // if (window.location.reload === true) {
+    //     return <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '400px' }}>
+    //         <img style={{ width: '200px' }} src="https://flevix.com/wp-content/uploads/2019/07/Disk-Preloader-1.gif" alt="" />
+    //     </div>
+    // }
 
     return (
         <div>

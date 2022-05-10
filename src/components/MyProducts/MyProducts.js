@@ -6,12 +6,13 @@ import ProductRow from '../ProductRow/ProductRow';
 import './MyProducts.css'
 
 const MyProducts = () => {
-
+    const [spinner, setSpinner] = useState(false);
     const [user] = useAuthState(auth)
     const [myProducts, setMyProducts] = useState([])
     useEffect(() => {
 
         const getProducts = async () => {
+            setSpinner(true);
             const email = user.email;
             const url = `http://localhost:5000/myproduct?email=${email}`
             const { data } = await axios.get(url, {
@@ -19,6 +20,7 @@ const MyProducts = () => {
                     authorization: `Bearer ${localStorage.getItem('accessToken')}`
                 }
             });
+            setSpinner(false);
             setMyProducts(data)
             console.log(data)
         }
@@ -34,6 +36,11 @@ const MyProducts = () => {
                 <p>Price</p>
                 <p>Quantity</p>
             </div>
+            {
+                spinner && <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '400px' }}>
+                    <img style={{ width: '200px' }} src="https://flevix.com/wp-content/uploads/2019/07/Disk-Preloader-1.gif" alt="" />
+                </div>
+            }
             {
                 myProducts.map(myProduct => <ProductRow product={myProduct}></ProductRow>)
             }
