@@ -3,12 +3,16 @@
     grid-template-columns: 1fr 1fr;
 }
 
+.logo {
+    font-weight: 500;
+}
+
 .hero__title {
     margin-top: 8rem;
 }
 
 .hero__title h1 {
-    color: #0081D2;
+    color: #353535;
     font-size: 40px;
 }
 
@@ -59,4 +63,47 @@
 .blogs h2 a {
     text-decoration: none;
     color: black;
+}
+
+
+@media screen and (max-width:800px) {
+    .hero__section {
+        grid-template-columns: 1fr;
+    }
+
+    .hero__image img {
+        width: 100%;
+    }
+
+    .hero__title {
+        margin-top: 4rem;
+    }
+
+    .overview__info {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .product__items {
+        grid-template-columns: 1fr;
+    }
+
+    .blogs {
+        grid-template-columns: 1fr;
+    }
+
+    .team__container {
+        grid-template-columns: 1fr;
+    }
+
+    .footer__container {
+        grid-template-columns: 1fr;
+    }
+
+    .logo ul {
+        margin-top: 1rem;
+    }
+
+    .footer__3 {
+        text-align: left;
+    }
 }

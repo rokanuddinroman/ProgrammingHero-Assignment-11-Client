@@ -8,7 +8,8 @@
     width: 100%;
     border: 2px solid #e70c0f;
     border-radius: 4px;
-
+    aspect-ratio: 12/16;
+    object-fit: cover;
 }
 
 .product__detail .product__info {
@@ -75,4 +76,17 @@
     border-radius: 3px;
     border: 0px;
     outline: 2px solid black;
+}
+
+
+
+@media screen and (max-width:800px) {
+    .product__detail {
+        grid-template-columns: 1fr;
+    }
+
+    .product__detail .product__info {
+        margin-left: 1rem;
+        margin-top: 0.5rem;
+    }
 }

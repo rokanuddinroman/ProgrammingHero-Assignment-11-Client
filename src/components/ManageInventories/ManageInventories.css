@@ -53,7 +53,10 @@
 
 .product__rows {
     border-radius: 5px;
-    margin-top: 3rem;
+    margin-block: 3rem;
+
+    /* width: 1200px; */
+    /* overflow-x: scroll; */
     /* background-color: rgba(128, 128, 128, 0.199); */
 }
 
@@ -85,4 +88,17 @@
     background-color: #2e2e2e;
     padding: 2px 12px;
     border-radius: 5px;
+}
+
+
+@media screen and (max-width:800px) {
+    .product__row {
+        grid-template-columns: 1fr;
+
+    }
+
+    .product__row__heading {
+        grid-template-columns: 1fr;
+
+    }
 }

@@ -1,7 +1,13 @@
 .login__container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    min-height: 100vh;
+    /* min-height: 60vh; */
+    padding-bottom: 3rem;
+}
+
+.login__container img {
+    width: 100%;
+    float: center;
 }
 
 .main {
@@ -96,4 +102,14 @@ hr {
     /* padding-block: 8px; */
     padding-left: 8px;
     margin-block: 8px;
+}
+
+@media screen and (max-width:800px) {
+    .login__container {
+        grid-template-columns: 1fr;
+    }
+
+    .login__container img {
+        display: none;
+    }
 }

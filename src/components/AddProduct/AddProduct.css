@@ -44,3 +44,16 @@
     margin-inline: auto;
     text-align: center;
 }
+
+
+
+@media screen and (max-width:800px) {
+
+    .addproduct__form {
+        grid-template-columns: 1fr;
+    }
+
+    .addproduct__input {
+        width: 96%;
+    }
+}

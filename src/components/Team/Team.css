@@ -1,0 +1,27 @@
+.team__container {
+    margin-bottom: 3rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    text-align: center;
+}
+
+.team__container p {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.team__container div {
+    padding: 2rem;
+    background-color: rgb(235, 248, 255);
+
+    border-radius: 5px;
+}
+
+.team__container img {
+    width: 100%;
+    border-radius: 50%;
+    float: center;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import useBlogs from '../../CustomHooks/useBlogs/useBlogs';
 import Overview from '../Overview/Overview';
 import Product from '../Product/Product';
+import Team from '../Team/Team';
 import './Home.css'
 const Home = () => {
     const [products, setProducts] = useState([])
@@ -60,7 +61,7 @@ const Home = () => {
 
             </div>
             <div className='container'>
-                <h2 className='heading__2' style={{ marginBlock: "2rem" }}>Blogs</h2>
+                <h2 className='heading__2' style={{ marginBlock: "2rem" }}>Some FAQ articles on our Works</h2>
                 <div className="blogs">
                     {
                         blogs.map(blog => <article>
@@ -72,6 +73,7 @@ const Home = () => {
                     }
                 </div>
             </div>
+            <Team />
 
         </div>
     );

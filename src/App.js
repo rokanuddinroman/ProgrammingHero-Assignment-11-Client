@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import './App.css';
+import AboutMe from './components/AboutMe/AboutMe';
 import AddProduct from './components/AddProduct/AddProduct';
 import Blogs from './components/Blogs/Blogs';
 import Footer from './components/Footer/Footer';
@@ -21,6 +22,7 @@ function App() {
       <Navbar></Navbar>
       <Routes>
         <Route path='/' element={<Home />}></Route>
+        <Route path='/about' element={<AboutMe></AboutMe>}></Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/inventory/:productId' element={
           <RequireAuth>

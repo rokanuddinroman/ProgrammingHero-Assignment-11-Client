@@ -32,36 +32,39 @@ const ManageInventories = () => {
     }
 
     return (
-        <div className='container inventory__container'>
-            <div className='product__rows'>
-                <div className='product__row__heading'>
-                    <p>Product Name ({products.length})</p>
-                    <p>Supplier</p>
-                    <p>Price</p>
-                    <p style={{ display: "flex", justifyContent: "space-between" }}>Quantity
-                        <Link style={{ display: "flex", alignItems: "center" }} className='thin__button' to="/addproduct"><MdAdd />Add new item</Link>
-                    </p>
-                </div>
-                {spinner && (
-                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '400px' }}>
-                        <img style={{ width: '200px' }} src="https://flevix.com/wp-content/uploads/2019/07/Disk-Preloader-1.gif" alt="" />
-                    </div>
-                )}
-                {
-                    products.map(product => <div className='product__row'>
-                        <p className='product__name'>
-                            <img src={product.image} alt="" />
-                            {product.productname}</p>
-                        <p>{product.suppliername}</p>
-                        <p>{product.price}$</p>
-                        <p className='quantity__column'>{product.quantity}
-                            <span>
-                                <button onClick={() => productDetails(product._id)} className='icon__button'><FiEdit /></button>
-                                <button onClick={() => handleDelete(product._id)} className='icon__button'><RiDeleteBin5Line /></button>
-                            </span>
+        <div className="container inventory__container">
+            <div className=''>
+                <h1 style={{ textAlign: "center", marginTop: "2rem" }}>Manage Items</h1>
+                <div className='product__rows'>
+                    <div className='product__row__heading'>
+                        <p>Product Name ({products.length})</p>
+                        <p>Supplier</p>
+                        <p>Price</p>
+                        <p style={{ display: "flex", justifyContent: "space-between" }}>Quantity
+                            <Link style={{ display: "flex", alignItems: "center" }} className='thin__button' to="/addproduct"><MdAdd />Add new item</Link>
                         </p>
-                    </div>)
-                }
+                    </div>
+                    {spinner && (
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '400px' }}>
+                            <img style={{ width: '200px' }} src="https://flevix.com/wp-content/uploads/2019/07/Disk-Preloader-1.gif" alt="" />
+                        </div>
+                    )}
+                    {
+                        products.map(product => <div className='product__row'>
+                            <p className='product__name'>
+                                <img src={product.image} alt="" />
+                                {product.productname}</p>
+                            <p>{product.suppliername}</p>
+                            <p>{product.price}$</p>
+                            <p className='quantity__column'>{product.quantity}
+                                <span>
+                                    <button onClick={() => productDetails(product._id)} className='icon__button'><FiEdit /></button>
+                                    <button onClick={() => handleDelete(product._id)} className='icon__button'><RiDeleteBin5Line /></button>
+                                </span>
+                            </p>
+                        </div>)
+                    }
+                </div>
             </div>
         </div>
     );

@@ -1,0 +1,6 @@
+.about__container div {
+    background-color: aliceblue;
+    border: 2px solid gray;
+    padding: 2rem;
+    margin: 2rem auto;
+}

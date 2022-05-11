@@ -63,7 +63,9 @@ const Registration = () => {
     return (
         <div className="main">
             <div className='container login__container'>
-                <div></div>
+                <div>
+                    <img src="https://i.ibb.co/fYM45S2/20220511-030611.png" alt="" />
+                </div>
                 <div className="form">
                     <div>
                         <form onSubmit={handleCreateUser}>

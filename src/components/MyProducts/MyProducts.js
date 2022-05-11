@@ -29,21 +29,25 @@ const MyProducts = () => {
     }, [user])
 
     return (
-        <div className='container product__rows'>
-            <div className='product__row__heading'>
-                <p>Product Name ({myProducts.length})</p>
-                <p>Supplier</p>
-                <p>Price</p>
-                <p>Quantity</p>
-            </div>
-            {
-                spinner && <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '400px' }}>
-                    <img style={{ width: '200px' }} src="https://flevix.com/wp-content/uploads/2019/07/Disk-Preloader-1.gif" alt="" />
+        <div className="container">
+            <h1 style={{ textAlign: "center", marginTop: "2rem" }}>My Items</h1>
+
+            <div className='product__rows'>
+                <div className='product__row__heading'>
+                    <p>Product Name ({myProducts.length})</p>
+                    <p>Supplier</p>
+                    <p>Price</p>
+                    <p>Quantity</p>
                 </div>
-            }
-            {
-                myProducts.map(myProduct => <ProductRow product={myProduct}></ProductRow>)
-            }
+                {
+                    spinner && <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '400px' }}>
+                        <img style={{ width: '200px' }} src="https://flevix.com/wp-content/uploads/2019/07/Disk-Preloader-1.gif" alt="" />
+                    </div>
+                }
+                {
+                    myProducts.map(myProduct => <ProductRow product={myProduct}></ProductRow>)
+                }
+            </div>
         </div>
     );
 };

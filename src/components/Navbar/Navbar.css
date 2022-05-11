@@ -23,7 +23,7 @@
     /* padding-block: 0.49rem; */
 }
 
-.navbar .navlinks .menulink:last-child {
+.menulink:last-child {
     border-right: 1.5px solid black;
 
 }
@@ -43,22 +43,92 @@
     /* background-color: rgb(236, 236, 236); */
 }
 
-.navbar .navlinks .navmenu a {
+.navmenu__mobile a,
+.navmenu a {
     text-decoration: none;
     border-left: 1.5px solid black;
     color: black;
     padding: 10px 15px;
 }
 
-.navbar .navlinks .navmenu a.active {
+.navmenu__mobile a.active,
+.navmenu a.active {
     background-color: #1D90F4;
     color: white !important;
 }
 
-.navbuttons .prime__button {
+.prime__button {
     padding: 3px 15px;
+    font-weight: 600;
     margin-left: 1rem;
     background-color: rgb(236, 236, 236);
     border-radius: 8px;
     border: none;
+}
+
+.navmenu__mobile {
+    display: none;
+}
+
+.hamburger {
+    display: none;
+}
+
+@media screen and (max-width:900px) {
+    .hamburger {
+        display: block;
+        border: 0;
+        background-color: transparent;
+        font-size: 22px;
+        margin-right: 1rem;
+    }
+
+    .navmenu,
+    .navbuttons {
+        display: none;
+    }
+
+    .navmenu__mobile .menulink {
+        display: block;
+    }
+
+
+    .navmenu__mobile {
+        /* background-color: #1D90F4; */
+        display: block;
+        position: absolute;
+        left: 0;
+        background-color: aliceblue;
+        width: 100%;
+        top: 42px;
+        /* height: 100vh; */
+        height: 330px;
+    }
+
+    .navmenu__mobile__buttons {
+        display: block;
+        position: absolute;
+        top: 330px;
+        left: 10px;
+    }
+
+    .navmenu__mobile__buttons button {}
+
+    .navmenu__mobile {
+        display: block;
+    }
+
+    .menulink:last-child,
+    .navmenu__mobile a {
+        border: none;
+    }
+
+    .logo {
+        padding-left: 1rem;
+    }
+
+    /* .navbar__container {
+        position: fixed;
+    } */
+
 }

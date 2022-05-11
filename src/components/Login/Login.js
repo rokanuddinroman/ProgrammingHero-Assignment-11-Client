@@ -43,6 +43,7 @@ const Login = () => {
         event.preventDefault();
         if (error1) {
             setError(error1.message)
+            toast.error("Password did not Matched")
             return;
         }
         await signInWithEmailAndPassword(email, password);
@@ -76,7 +77,9 @@ const Login = () => {
         <div className="main">
             <ToastContainer />
             <div className='container login__container'>
-                <div></div>
+                <div>
+                    <img src="https://i.ibb.co/jRHg9Pb/20220511-030015.png" alt="" />
+                </div>
                 <div className="form">
                     <div>
                         <form onSubmit={handleUserSignIn}>
