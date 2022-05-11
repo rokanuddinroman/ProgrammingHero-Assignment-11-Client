@@ -11,7 +11,7 @@ const useMyProduct = () => {
 
         const getProducts = async () => {
             const email = user.email;
-            const url = `http://localhost:5000/myproduct?email=${email}`
+            const url = `https://mighty-taiga-11756.herokuapp.com/myproduct?email=${email}`
             const { data } = await axios.get(url, {
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('accessToken')}`

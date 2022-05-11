@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { signOut } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { RiUser4Fill } from 'react-icons/ri';
 import { HiMenuAlt4 } from 'react-icons/hi';
 import { IoClose } from 'react-icons/io5';
@@ -20,11 +20,11 @@ const Navbar = () => {
         <div className="navbar__container">
             <div className="navbar">
                 <div className="logo">
-                    <p>Marvel Bangladesh</p>
+                    <Link to='/'>Marvel Bangladesh</Link>
                 </div>
                 <div className="navlinks">
                     <button className="hamburger" onClick={() => setNavbar(!navbar)}>{navbar ? <IoClose /> : <HiMenuAlt4 />}</button>
-                    <div onClick={() => setNavbar(!navbar)} className={navbar ? "navmenu__mobile" : "navmenu"}>
+                    <div className={navbar ? "navmenu__mobile" : "navmenu"}>
                         <NavLink className="menulink" to="/">Home</NavLink>
                         {
                             user &&

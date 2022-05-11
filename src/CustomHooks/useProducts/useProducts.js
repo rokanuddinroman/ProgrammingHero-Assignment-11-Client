@@ -5,7 +5,7 @@ const useProducts = () => {
     const [spinner, setSpinner] = useState(false);
     useEffect(() => {
         setSpinner(true);
-        fetch('http://localhost:5000/product')
+        fetch('https://mighty-taiga-11756.herokuapp.com/product')
             .then(res => res.json())
             .then(data => {
                 setProducts(data)

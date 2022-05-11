@@ -12,6 +12,7 @@
 }
 
 .team__container div {
+    border: 2px solid gray;
     padding: 2rem;
     background-color: rgb(235, 248, 255);
 

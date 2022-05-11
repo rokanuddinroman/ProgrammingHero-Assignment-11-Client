@@ -17,7 +17,7 @@ const ProductRow = (props) => {
     const handleDelete = id => {
         const proceed = window.confirm('Sure?')
         if (proceed) {
-            const url = `http://localhost:5000/product/${id}`
+            const url = `https://mighty-taiga-11756.herokuapp.com/product/${id}`
             fetch(url, {
                 method: 'DELETE'
             })

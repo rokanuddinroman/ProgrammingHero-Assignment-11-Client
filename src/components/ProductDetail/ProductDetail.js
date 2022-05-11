@@ -8,7 +8,7 @@ const ProductDetail = () => {
     const [spinner, setSpinner] = useState(false);
 
     useEffect(() => {
-        const url = `http://localhost:5000/product/${productId}`
+        const url = `https://mighty-taiga-11756.herokuapp.com/product/${productId}`
         setSpinner(false);
         fetch(url)
             .then(res => res.json())
@@ -30,7 +30,7 @@ const ProductDetail = () => {
         const newQuantityString = String(newQuantityNumber);
         console.log("newQuantityString", newQuantityString)
         const updatedStock = { newQuantityString };
-        const url = `http://localhost:5000/product/${productId}`
+        const url = `https://mighty-taiga-11756.herokuapp.com/product/${productId}`
         console.log(updatedStock, url)
 
         fetch(url, {
@@ -57,7 +57,7 @@ const ProductDetail = () => {
         const currentQuantity = parseInt(product.quantity) - 1;
         const newQuantityString = String(currentQuantity)
         const updatedStock = { newQuantityString };
-        const url = `http://localhost:5000/product/${id}`
+        const url = `https://mighty-taiga-11756.herokuapp.com/product/${id}`
         console.log(updatedStock, url)
 
         fetch(url, {
@@ -85,8 +85,9 @@ const ProductDetail = () => {
                     <div className='product__info'>
                         <h1>{product.productname}</h1>
                         <small style={{ display: "block", marginBlock: "0.5rem" }}>ProductId is {product._id}</small>
+                        <div style={{ marginBlock: "0.5rem" }}><span style={{ fontWeight: "500" }}>Product of </span><span className="blue__badge">{product.suppliername}</span></div>
+                        <hr />
                         <p>{product.description}</p>
-                        <span className="blue__badge">{product.suppliername}</span>
                         <p className="quantity">{
                             product.quantity <= 0 ?
                                 "No" : product.quantity
@@ -94,10 +95,11 @@ const ProductDetail = () => {
                         <h1 className="price">{product.price}$</h1>
                         <button onClick={() => handleDelivered(productId)} className='second__btn'>Delivered</button>
                         <br />
-                        <div><h1 className="heading">Update Stocks</h1></div>
-                        <div style={{ marginBlock: "0.8rem" }}>
+                        <div className="update__form" style={{ marginBlock: "0.8rem" }}>
+                            <div><h1 className="heading">Update Stocks</h1></div>
                             <form onSubmit={handleUpdateStock}>
                                 <input className='' type="number" name="quantity" placeholder='Enter Stocks' id="" />
+                                <br />
                                 <button className='dark__button' type="submit">Update</button>
                             </form>
                         </div>

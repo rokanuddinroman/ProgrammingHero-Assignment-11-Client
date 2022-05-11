@@ -18,7 +18,7 @@ const AddProduct = () => {
             price: event.target.price.value,
             quantity: event.target.quantity.value
         }
-        axios.post('http://localhost:5000/product', myProduct)
+        axios.post('https://mighty-taiga-11756.herokuapp.com/product', myProduct)
             .then(response => {
                 const { data } = response;
                 if (data.insertedId) {
@@ -50,7 +50,7 @@ const AddProduct = () => {
                         <br />
                         <input className='addproduct__input' type="number" name="quantity" id="" placeholder='Quantity' required />
                         <br />
-                        <input style={{ width: "50%", marginLeft: "-3px", padding: "10px", borderRadius: "8px", marginTop: "0.5rem", cursor: "pointer" }} className='dark__button' type="submit" value="Add Product" />
+                        <input style={{ width: "50%", marginLeft: "-3px", padding: "10px", borderRadius: "8px", marginTop: "0.5rem", cursor: "pointer", backgroundColor: "black", fontWeight: "600", color: "white" }} className='' type="submit" value="Add Product" />
                     </form>
                 </div>
 

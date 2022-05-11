@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
 import ProductRow from '../ProductRow/ProductRow';
 import './MyProducts.css'
@@ -14,7 +15,7 @@ const MyProducts = () => {
         const getProducts = async () => {
             setSpinner(true);
             const email = user.email;
-            const url = `http://localhost:5000/myproduct?email=${email}`
+            const url = `https://mighty-taiga-11756.herokuapp.com/myproduct?email=${email}`
             const { data } = await axios.get(url, {
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -37,7 +38,9 @@ const MyProducts = () => {
                     <p>Product Name ({myProducts.length})</p>
                     <p>Supplier</p>
                     <p>Price</p>
-                    <p>Quantity</p>
+                    <p style={{ display: "flex", justifyContent: "space-between" }}>Quantity
+                        <Link style={{ display: "flex", alignItems: "center" }} className='thin__button' to="/addproduct">Add new item</Link>
+                    </p>
                 </div>
                 {
                     spinner && <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '400px' }}>
