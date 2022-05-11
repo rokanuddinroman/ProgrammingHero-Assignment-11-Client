@@ -3,19 +3,22 @@ import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-fi
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
+import useToken from '../../CustomHooks/useToken/useToken';
 
 const Registration = () => {
 
     const [createUserWithEmailAndPassword, user, loading, error1] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
+    const [signInWithGoogle, user1, googleLoading, googleError] = useSignInWithGoogle(auth);
+
+    const [token] = useToken(user || user1)
+
+
     const location = useLocation();
     const navigate = useNavigate()
     const from = location.state?.from?.pathname || '/'
 
-    // if (user) {
-    //     navigate('/')
-    // }
-    if (user) {
+    if (token) {
         navigate(from, { replace: true })
     }
 
@@ -54,10 +57,11 @@ const Registration = () => {
 
     }
 
-    const [signInWithGoogle, user1] = useSignInWithGoogle(auth);
 
-    if (user1) {
-        navigate(from, { replace: true })
+    if (loading || googleLoading) {
+        return <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '400px' }}>
+            <img style={{ width: '200px' }} src="https://flevix.com/wp-content/uploads/2019/07/Disk-Preloader-1.gif" alt="" />
+        </div>
     }
 
     return (

@@ -6,16 +6,9 @@ import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../firebase.init';
 import './Login.css'
 import 'react-toastify/dist/ReactToastify.css';
+import useToken from '../../CustomHooks/useToken/useToken';
 const Login = () => {
 
-
-
-    const [
-        signInWithEmailAndPassword,
-        user,
-        loading,
-        error1,
-    ] = useSignInWithEmailAndPassword(auth);
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -24,14 +17,21 @@ const Login = () => {
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || '/'
 
-    if (user) {
-        // navigate(from, { replace: true })
-    }
-    if (loading) {
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '400px' }}>
-            <img style={{ width: '200px' }} src="https://flevix.com/wp-content/uploads/2019/07/Disk-Preloader-1.gif" alt="" />
-        </div>
-    }
+    let errorMessage;
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error1,
+    ] = useSignInWithEmailAndPassword(auth);
+
+    const [sendPasswordResetEmail, sending, error2] = useSendPasswordResetEmail(
+        auth
+    );
+
+    const [signInWithGoogle, user1, googleLoading, googleError] = useSignInWithGoogle(auth);
+
+    const [token] = useToken(user || user1);
 
     const handleEmailBlur = event => {
         setEmail(event.target.value);
@@ -41,27 +41,36 @@ const Login = () => {
     }
     const handleUserSignIn = async event => {
         event.preventDefault();
-        if (error1) {
-            setError(error1.message)
-            toast.error("Password did not Matched")
-            return;
-        }
         await signInWithEmailAndPassword(email, password);
-        const { data } = await axios.post('https://mighty-taiga-11756.herokuapp.com/login', { email })
-        console.log(data);
-        localStorage.setItem('accessToken', data.accessToken);
-        navigate(from, { replace: true });
     }
 
-    const [signInWithGoogle, user1] = useSignInWithGoogle(auth);
+
+    if (loading || sending || googleLoading) {
+        return <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '400px' }}>
+            <img style={{ width: '200px' }} src="https://flevix.com/wp-content/uploads/2019/07/Disk-Preloader-1.gif" alt="" />
+        </div>
+    }
+
+    if (error1) {
+        // alert("Something went wrong")
+        errorMessage = <p className='text-danger'>Error: {error1?.message}</p>
+    }
+    // if (googleError) {
+    //     setError(googleError.message)
+    // }
+
+    if (token) {
+        navigate(from, { replace: true })
+    }
 
     if (user1) {
         navigate(from, { replace: true })
     }
 
-    const [sendPasswordResetEmail, sending, error2] = useSendPasswordResetEmail(
-        auth
-    );
+
+
+
+
 
     const resetPassword = async () => {
         if (email) {
@@ -90,6 +99,7 @@ const Login = () => {
                             <br />
                             <button className='formlink right' onClick={resetPassword}>Forget Password?</button>
                             <p className='error' style={{ color: "red" }}>{error}</p>
+                            <p className='error' style={{ color: "red" }}>{errorMessage}</p>
                             <input className='btn' type="submit" value="Log In" />
                         </form>
 
