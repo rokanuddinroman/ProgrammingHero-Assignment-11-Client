@@ -90,8 +90,8 @@ const ProductDetail = () => {
                         <p>{product.description}</p>
                         <p className="quantity">{
                             product.quantity <= 0 ?
-                                "No" : product.quantity
-                        } items available.</p>
+                                "Sold" : <>{product.quantity} items available.</>
+                        }</p>
                         <h1 className="price">{product.price}$</h1>
                         <button onClick={() => handleDelivered(productId)} className='second__btn'>Delivered</button>
                         <br />
