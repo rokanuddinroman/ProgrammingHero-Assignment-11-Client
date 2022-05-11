@@ -51,9 +51,9 @@ const Login = () => {
         </div>
     }
 
-    if (error1) {
+    if (error1 || googleError) {
         // alert("Something went wrong")
-        errorMessage = <p className='text-danger'>Error: {error1?.message}</p>
+        errorMessage = <p className='text-danger'>Error:{googleError?.message} {error1?.message}</p>
     }
     // if (googleError) {
     //     setError(googleError.message)

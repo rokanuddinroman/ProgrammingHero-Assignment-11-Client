@@ -48,15 +48,15 @@ const Registration = () => {
             setError('Add atleast 6 characters')
             return;
         }
-        if (error1) {
-            setError(error1.message)
-            return;
-        }
         createUserWithEmailAndPassword(email, password)
         toast('Verification Mail Sent')
 
     }
 
+    let errorMessage;
+    if (error1 || googleError) {
+        errorMessage = <p>{error1?.message}{googleError?.message}</p>
+    }
 
     if (loading || googleLoading) {
         return <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '400px' }}>
@@ -84,7 +84,7 @@ const Registration = () => {
                         </form>
 
                         <p style={{ marginTop: "1.5rem" }}>Already registered? <Link className='formlink' to="/login">Sign In.</Link></p>
-                        <p className='error' style={{ color: "red" }}>{error}</p>
+                        <p className='error' style={{ color: "red" }}>{error}{errorMessage}</p>
                         <hr />
                         <button onClick={() => signInWithGoogle()} className="outline__button">Sign in with Google</button>
                     </div>
